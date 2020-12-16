@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount = () => {
     getData()
     .then(data => this.setState({ reservations: data }))
-    .catch
+    .catch(error => this.setState({ error: error.message }))
   }
 
   render() {
@@ -28,7 +28,7 @@ class App extends Component {
         </div>
         <div className='resy-container'>
           <List
-
+            reservations={ this.state.reservations }
           />
         </div>
       </div>
