@@ -18,7 +18,7 @@ const List = ({ reservations }) => {
   })
 
   return (
-    <section>
+    <section className='res-list'>
       { allReservations }
     </section>
   )
