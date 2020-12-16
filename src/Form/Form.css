@@ -1,0 +1,18 @@
+.res-form {
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.make-res-button {
+  background-color: teal;
+  color: white;
+  border: solid 1px white;
+}

@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
+* {
+  /* border: solid 2px */
+}
+
+.resy-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
 .App {
   display: flex;
