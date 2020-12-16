@@ -18,7 +18,7 @@ class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const newRes = { id: Date.now(), name: this.state.name, date: this.state.date, time: this.state.time, number: parseInt(this.state.number) };
+    const newRes = { name: this.state.name, date: this.state.date, time: this.state.time, number: parseInt(this.state.number) };
     this.props.addReservation(newRes);
     this.clearForm();
   }

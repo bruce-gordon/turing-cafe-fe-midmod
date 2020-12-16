@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getData } from '../apiCalls.js';
+import { getData, postData, deleteData } from '../apiCalls.js';
 import List from '../List/List.js';
 import Res from '../Res/Res.js';
 import Form from '../Form/Form.js';
+
 class App extends Component {
   constructor() {
     super();
@@ -21,6 +22,17 @@ class App extends Component {
 
   addReservation = (newRes) => {
     this.setState({ reservations: [...this.state.reservations, newRes] })
+    postData(newRes)
+    .then(console.log(`Reservation added for ${newRes.name}`))
+    .catch(error => this.setState({ error: error.message }))
+  }
+
+  cancelReservation = (id) => {
+    const updatedReservations = this.state.reservations.filter(res => res.id !== id);
+    this.setState({ reservations: updatedReservations });
+    deleteData(id)
+    .then(console.log(`Reservation #${id} has been deleted.`))
+    .catch(error => this.setState({ error: error.message }))
   }
 
   render() {
@@ -35,6 +47,7 @@ class App extends Component {
         <div className='resy-container'>
           <List
             reservations={ this.state.reservations }
+            cancel={ this.cancelReservation }
           />
         </div>
       </div>

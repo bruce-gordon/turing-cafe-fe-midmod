@@ -3,7 +3,7 @@ import './List.css';
 import Res from '../Res/Res.js';
 
 
-const List = ({ reservations }) => {
+const List = ({ reservations, cancel }) => {
   const allReservations = reservations.map(res => {
     return (
       <Res
@@ -13,6 +13,7 @@ const List = ({ reservations }) => {
         date={ res.date }
         time={ res.time }
         number={ res.number }
+        cancel={ cancel }
       />
     )
   })
